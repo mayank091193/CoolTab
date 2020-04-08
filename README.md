@@ -4,6 +4,18 @@ It replaces new tab page with a personal dashboard featuring notes, weather, and
 
 Made with HTML, CSS, Javascript, jQuery, Bootstrap
 
+# Support
+
+If this helps you, you can make my day by contributing to this project:
+
+### [💜 Support my open-source work on GitHub](https://github.com/sponsors/mayank091193)
+
+Please check out my sponsor page.
+
+(GitHub currently **doubles your support**! So if you support me with $5/mo, I will get $10 instead! 😉)
+
+Thank you very much!!
+
 ## Built using
 
 * [HTML](https://www.w3schools.com/html/)
