@@ -44,6 +44,8 @@ git clone https://github.com/mayank091193/CoolTab.git
 
 Visit ```chrome://extensions/```
 
+Enable Developer mode if not enabled.
+
 Click Load Unpacked(On top left or top right) and select the cloned folder(CoolTab) - This will add CoolTab local extension to the Chrome.
 
 
