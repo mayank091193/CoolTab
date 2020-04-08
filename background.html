@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+
+<head>
+  <script type="text/javascript" src="jquery-1.9.1.js"></script>
+  <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="background.js"></script>
+  <!-- <style>
+html
+{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style> -->
+  <style>
+    #idmainsection {
+      position: relative;
+      float: right;
+      width: 230px;
+    }
+
+    #btnCheckTodoNew {
+      position: relative;
+      margin-top: -644px;
+      float: right;
+      margin-right: 10px;
+    }
+
+    .btnCheckTodo {
+      background-color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      color: #0C5;
+      margin-right: 10px;
+      font-size: 24px;
+      font-family: "Nunito", sans-serif;
+      font-weight: 300;
+      padding: 20px 0;
+      width: 230px;
+      height: 70px;
+      float: right;
+      background: #0D6;
+      border: 1px solid #0D6;
+      color: #FFF;
+      overflow: hidden;
+
+      transition: all 0.5s;
+    }
+
+    .btnCheckTodo:hover,
+    .btnCheckTodo:active {
+      text-decoration: none;
+      color: #0C5;
+      border-color: #0C5;
+      background: #FFF;
+    }
+
+    .btnCheckTodo span {
+      display: inline-block;
+      position: relative;
+      padding-right: 0;
+
+      transition: padding-right 0.5s;
+    }
+
+    .btnCheckTodo span:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      right: -18px;
+      opacity: 0;
+      width: 10px;
+      height: 10px;
+      margin-top: -10px;
+
+      background: rgba(0, 0, 0, 0);
+      border: 3px solid #FFF;
+      border-top: none;
+      border-right: none;
+
+      transition: opacity 0.5s, top 0.5s, right 0.5s;
+      transform: rotate(-45deg);
+    }
+
+    .btnCheckTodo:hover span,
+    .btnCheckTodo:active span {
+      padding-right: 30px;
+    }
+
+    .btnCheckTodo:hover span:after,
+    .btnCheckTodo:active span:after {
+      transition: opacity 0.5s, top 0.5s, right 0.5s;
+      opacity: 1;
+      border-color: #0C5;
+      right: 0;
+      top: 50%;
+    }
+
+    .titletodo {
+      font-weight: bold;
+      font-size: 23px;
+      font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+    }
+
+    .todoElement {
+      border: 1px solid black;
+      margin-left: 15px;
+      width: 182px;
+      background: #ffc;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+    }
+
+    #idInsertTodoBlock {
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+      position: relative;
+      float: right;
+      width: 230px;
+      margin-top: 5px;
+      padding: 5px;
+      margin-right: 10px;
+      border-radius: 7px;
+    }
+
+    #noTodoFound {
+      height: 127px;
+      background-color: white;
+      color: black;
+      padding: 5px;
+      font-weight: bold;
+      font-size: 20px;
+      border: 2px solid black;
+      position: relative;
+      margin-top: 5px;
+      float: right;
+      width: 230px;
+      margin-right: 10px;
+      border-radius: 7px;
+    }
+
+    #newNotFound {
+      margin-top: 45px;
+      border-radius: 5px;
+    }
+
+    #todos {
+      max-height: 325px;
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+      position: relative;
+      float: right;
+      width: 230px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      margin-right: 10px;
+      border-radius: 7px;
+    }
+
+    .classShadow {
+      color: #2c2c2c;
+      letter-spacing: .05em;
+      text-shadow: 4px 4px 0px black, 7px 7px 0px rgba(0, 0, 0, 0.2);
+      font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+    }
+
+    span#idWelcome {
+      color: white;
+      letter-spacing: .05em;
+      font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+      text-shadow: 4px 4px 0px black, 7px 7px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    #idUserName:focus,
+    #idUserName.focus {
+      border: solid 5px #969696;
+    }
+  </style>
+</head>
+
+<body class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-lg-10 text-center" style="margin-top:9%;">
+      <div>
+        <div style="font-size: 40px;font-weight: bold;">
+          <span id="idspn">
+            <label style="color:white">Provide your Name :</label>
+            <input type="text" id="idUserName" style="vertical-align: middle;width: 350px;font-size:30px"
+              name="username"></span>
+              <p style="color: lightgrey;font-size: 75px;text-align: center;font-weight: bold;"><span style=""
+                id="idWelcome">Welcome</span> <span id="idNameUser"></span></p>
+        </div>
+        <ul class="menu" style="display:inline-block">
+          <li><a href="#">Google</a>
+            <ul class="submenu">
+              <li><a href="http://www.google.com">Google</a></li>
+              <li><a href="http://youtube.com">Youtube</a></li>
+              <li><a href="http://www.gmail.com">Gmail</a></li>
+              <li><a href="https://plus.google.com/">Google +</a></li>
+              <li><a href="https://www.google.com/drive/">Google drive</a></li>
+            </ul>
+          </li>
+          <li><a href="#s1">Social</a>
+            <ul class="submenu">
+              <li><a href="http://www.facebook.com">Facebook</a></li>
+              <li><a href="http://www.linkedin.com">Linkedin</a></li>
+              <li><a href="http://twitter.com">Twitter</a></li>
+              <li><a href="http://www.instagram.com">Instagram</a></li>
+              <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="#s2">News</a>
+            <ul class="submenu">
+              <ul class="submenu">
+                <li><a href="http://news.google.com/">Google News</a></li>
+                <li><a href="http://www.yahoo.com/news">Yahoo News</a></li>
+                <li><a href="http://timesofindia.indiatimes.com/">Times of india</a></li>
+                <li><a href="http://www.nbcnews.com/">NBC News</a></li>
+                <li><a href="http://edition.cnn.com/">CNN News</a></li>
+              </ul>
+            </ul>
+          </li>
+          <li><a href="#">Sport</a>
+            <ul class="submenu">
+              <li><a href="http://www.tensports.com">Ten Sport</a></li>
+              <li><a href="http://sports.yahoo.com/">Yahoo Sport</a></li>
+              <li><a href="http://www.espn.in/">ESPN Sport</a></li>
+              <li><a href="http://www.cbssports.com/">CBS Sport</a></li>
+              <li><a href="http://www.nbcsports.com/">NBC Sport</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div style="margin-top:50px;">
+          <span class="text-center inline-block" style="color: white;font-size: 25px;text-align: center;font-weight: none;"
+          id="idRandomThought"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-2">
+      <span id="txt" style="float:right;margin-right:10px;font-weight: bold;font-size: 55px;color:white;"></span>
+      <br>
+      <a href="#" id="idCheckAllTodo" class="btnCheckTodo">
+        <span>Check ToDo</span>
+      </a>
+      <div id="idInsertTodoBlock" style="display:none;">
+          <div style="height:10px"></div>
+          <div class="text-center">
+            <label class="titletodo" style="margin-right:16px">Insert To Do</label>
+          </div>
+          <div style="height:30px"></div>
+          <div>
+            <input type="text" class="form-control input-md" id="description" placeholder="Enter To Do">
+            <div style="position:absolute" id="alert"></div><br>
+          </div>
+          <div class="text-center">
+            <input class="btn btn-primary btn-md" style="width:95px" id="add" type="button" value="Insert" />
+            <button class="btn btn-primary btn-md" id="clear">Clear Todo</button>
+          </div>
+        </div>
+        <div id="idmainsection" style="display:none">
+          <div id="todos" style="display:none"></div>
+          <div id="noTodoFound" style="display:none">
+            <div class="text-center" id="newNotFound" style="border:1px solid black">
+              No To Do Found.
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    &nbsp;&nbsp;&nbsp;<button id="idClearName" class="btn btn-primary btn-md" style="background-color:red;position: absolute;
+    bottom: 10px;
+    left: 10px;" id="clear">Reset Name</button>
+  </div>
+
+
+
+
+</body>
+
+</html>
